@@ -28,6 +28,7 @@ import streamlit as st
 from extract_params import ParamsExtractor
 from compare_params import ParamComparator, COMPARE_PROMPT
 from export_excel import export_to_excel
+from excel_to_params import ExcelParamExtractor
 
 
 # ============================================================
@@ -165,6 +166,9 @@ def init_session_state():
     
     if 'uploaded_pdf_path' not in st.session_state:
         st.session_state.uploaded_pdf_path = None
+
+    if 'excel_import_result' not in st.session_state:
+        st.session_state.excel_import_result = None
 
 
 # ============================================================
@@ -825,6 +829,205 @@ def render_export():
 
 
 # ============================================================
+# 主页面 - Excel参数导入
+# ============================================================
+def render_excel_import(model: str):
+    """渲染Excel参数导入区域"""
+    st.markdown('<p class="step-header">📑 从Excel导入参数与规范</p>', unsafe_allow_html=True)
+    st.markdown("上传公司规范 Excel 文件，自动提取参数名称列表和规范值，可直接导入到参数清单和规范库。")
+
+    # ---- 已有结果优先显示 ----
+    if st.session_state.excel_import_result:
+        _render_excel_import_result(st.session_state.excel_import_result)
+        st.markdown("---")
+        if st.button("🗑️ 清除结果，重新导入", key="btn_clear_excel_result"):
+            st.session_state.excel_import_result = None
+            st.rerun()
+        return
+
+    # ---- 上传区域 ----
+    uploaded_excel = st.file_uploader(
+        "上传 Excel 规范文件",
+        type=["xls", "xlsx", "xlsm"],
+        help="支持 .xls / .xlsx / .xlsm 格式",
+        key="excel_import_uploader"
+    )
+
+    if uploaded_excel is None:
+        return
+
+    # 保存到临时文件
+    import tempfile
+    suffix = os.path.splitext(uploaded_excel.name)[1]
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        tmp.write(uploaded_excel.getvalue())
+        tmp_path = tmp.name
+
+    st.success(f"已上传: {uploaded_excel.name} ({uploaded_excel.size / 1024:.1f} KB)")
+
+    # ---- Sheet 选择 ----
+    try:
+        extractor = ExcelParamExtractor(model=model)
+        sheets = extractor.load_file(tmp_path)
+    except Exception as e:
+        st.error(f"文件读取失败: {e}")
+        return
+
+    selected_sheet = st.selectbox(
+        "选择要解析的 Sheet",
+        sheets,
+        help="选择包含技术参数规范的工作表"
+    )
+
+    # ---- 提取控制 ----
+    start_import = st.button("🚀 开始提取", type="primary",
+                             use_container_width=True, key="btn_excel_import")
+
+    # ---- 执行提取 ----
+    if start_import:
+        st.markdown("---")
+        st.markdown("#### 提取进度")
+        status_placeholder = st.empty()
+        log_placeholder = st.empty()
+
+        status_placeholder.info(f"正在提取... (模型: {model})")
+
+        try:
+            with capture_output(status_placeholder, log_placeholder):
+                result = extractor.extract(
+                    sheet_name=selected_sheet,
+                    rows_per_chunk=100
+                )
+            st.session_state.excel_import_result = result
+            status_placeholder.success(f"提取完成！共 {result['total_extracted']} 个参数")
+            import time
+            time.sleep(1)
+            st.rerun()
+        except Exception as e:
+            status_placeholder.error(f"提取失败: {e}")
+
+
+def _render_excel_import_result(result: dict):
+    """渲染Excel导入的提取结果（独立函数，不依赖文件上传状态）"""
+    tab_cn, tab_en, tab_spec = st.tabs([
+        f"中文参数名 ({len(result['chinese_names'])})",
+        f"英文参数名 ({len(result['english_names'])})",
+        f"规范库条目 ({len(result['spec_entries'])})"
+    ])
+
+    # ---- 中文参数名列表 ----
+    with tab_cn:
+        cn_text = "\n".join(result["chinese_names"])
+        st.text_area("中文参数名（可全选复制）", value=cn_text,
+                     height=300, key="cn_names_display")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("📋 追加到参数清单", use_container_width=True,
+                         key="btn_append_cn"):
+                existing = st.session_state.params_list.strip()
+                if existing:
+                    st.session_state.params_list = existing + "\n" + cn_text
+                else:
+                    st.session_state.params_list = cn_text
+                st.success(f"已追加 {len(result['chinese_names'])} 个参数到清单")
+        with col2:
+            if st.button("🔄 替换参数清单", use_container_width=True,
+                         key="btn_replace_cn"):
+                st.session_state.params_list = cn_text
+                st.success(f"已替换为 {len(result['chinese_names'])} 个参数")
+
+    # ---- 英文参数名列表 ----
+    with tab_en:
+        en_text = "\n".join(result["english_names"])
+        st.text_area("英文参数名（可全选复制）", value=en_text,
+                     height=300, key="en_names_display")
+
+    # ---- 规范库条目（可勾选） ----
+    with tab_spec:
+        if result["spec_entries"]:
+            import pandas as pd
+
+            # 初始化勾选状态（默认全选）
+            if "spec_select_all" not in st.session_state:
+                st.session_state.spec_select_all = True
+
+            # 快捷操作：全选 / 全不选
+            sel_col1, sel_col2, sel_col3 = st.columns([1, 1, 4])
+            with sel_col1:
+                if st.button("☑️ 全选", use_container_width=True, key="btn_select_all"):
+                    st.session_state.spec_select_all = True
+                    st.rerun()
+            with sel_col2:
+                if st.button("☐ 全不选", use_container_width=True, key="btn_deselect_all"):
+                    st.session_state.spec_select_all = False
+                    st.rerun()
+
+            # 构建可编辑表格
+            df = pd.DataFrame([{
+                "选择": st.session_state.spec_select_all,
+                "参数名": e["name"],
+                "规范值": e["value"] if e["value"] else "",
+                "类型": e["type"] if e["type"] else ""
+            } for e in result["spec_entries"]])
+
+            edited_df = st.data_editor(
+                df,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "选择": st.column_config.CheckboxColumn("选择", default=True, width="small"),
+                    "参数名": st.column_config.TextColumn("参数名", width="large"),
+                    "规范值": st.column_config.TextColumn("规范值", width="medium"),
+                    "类型": st.column_config.SelectboxColumn("类型", options=["", "A", "B", "C", "D"], width="small"),
+                },
+                key="spec_entries_editor"
+            )
+
+            selected_rows = edited_df[edited_df["选择"] == True]
+            st.caption(f"已勾选 {len(selected_rows)} / {len(edited_df)} 个条目")
+
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("📋 追加勾选项到规范库", use_container_width=True,
+                             key="btn_append_spec"):
+                    if len(selected_rows) == 0:
+                        st.warning("请至少勾选一个条目")
+                    else:
+                        new_entries = [{
+                            "name": row["参数名"],
+                            "value": row["规范值"],
+                            "type": row["类型"]
+                        } for _, row in selected_rows.iterrows()]
+
+                        existing_params = st.session_state.spec_database.get("parameters", [])
+                        existing_names = {p["name"] for p in existing_params}
+                        actually_new = [e for e in new_entries if e["name"] not in existing_names]
+                        existing_params.extend(actually_new)
+                        st.session_state.spec_database["parameters"] = existing_params
+                        skipped = len(new_entries) - len(actually_new)
+                        msg = f"已追加 {len(actually_new)} 个新条目到规范库"
+                        if skipped > 0:
+                            msg += f"（跳过 {skipped} 个已存在）"
+                        st.success(msg)
+            with col2:
+                if st.button("🔄 用勾选项替换规范库", use_container_width=True,
+                             key="btn_replace_spec"):
+                    if len(selected_rows) == 0:
+                        st.warning("请至少勾选一个条目")
+                    else:
+                        new_entries = [{
+                            "name": row["参数名"],
+                            "value": row["规范值"],
+                            "type": row["类型"]
+                        } for _, row in selected_rows.iterrows()]
+                        st.session_state.spec_database["parameters"] = new_entries
+                        st.success(f"已替换为 {len(new_entries)} 个规范条目")
+        else:
+            st.info("未提取到规范值")
+
+
+# ============================================================
 # 主函数
 # ============================================================
 def main():
@@ -841,7 +1044,12 @@ def main():
     selected_model = render_sidebar()
     
     # 主内容区 - 使用标签页组织
-    tab1, tab2, tab3 = st.tabs(["📄 文件上传与提取", "📚 规范数据库", "📊 比对与导出"])
+    tab1, tab2, tab3, tab4 = st.tabs([
+        "📄 文件上传与提取",
+        "📚 规范数据库",
+        "📊 比对与导出",
+        "📑 Excel参数导入"
+    ])
     
     with tab1:
         render_pdf_upload()
@@ -857,6 +1065,9 @@ def main():
         render_comparison(selected_model)
         st.markdown("---")
         render_export()
+
+    with tab4:
+        render_excel_import(selected_model)
 
 
 if __name__ == "__main__":

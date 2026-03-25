@@ -1,0 +1,616 @@
+{
+  "chinese_names": [
+    "隔离/接地开关额定短时工频耐受电压-对地",
+    "隔离/接地开关额定短时工频耐受电压-断口间 (型式试验/出厂试验)",
+    "隔离/接地开关额定雷电冲击耐受电压-对地",
+    "隔离/接地开关额定雷电冲击耐受电压-断口间",
+    "隔离/接地开关局部放电量",
+    "隔离/接地开关局部放电试验测量电压",
+    "隔离/接地开关额定短时耐受电流（额定热稳定电流）",
+    "隔离/接地开关额定短时耐受电流持续时间",
+    "隔离/接地开关额定峰值电流",
+    "隔离/接地开关额定电流 50 Hz",
+    "隔离/接地开关额定电流 60 Hz",
+    "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-动触头",
+    "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-螺旋形触头连接",
+    "隔离/接地开关机械寿命等级",
+    "隔离/接地开关开合母线充电电流试验",
+    "隔离/接地开关操作顺序-试验方式1",
+    "隔离/接地开关操作顺序-试验方式3",
+    "隔离/接地开关试验电压",
+    "隔离/接地开关容性开断电流",
+    "隔离/接地开关感性开断电流",
+    "隔离/接地开关开合母线转换电流",
+    "隔离/接地开关开合母线转换电压",
+    "隔离/接地开关导体尺寸-母线导体",
+    "隔离/接地开关导体尺寸-动触头",
+    "隔离/接地开关触头-类型",
+    "隔离/接地开关触头-隔离开关触头的弹簧数量",
+    "隔离/接地开关主回路电阻-母线侧隔离开关",
+    "隔离/接地开关主回路电阻-馈线侧隔离开关",
+    "隔离/接地开关导体材料-母线导体",
+    "隔离/接地开关导体材料-动触头",
+    "隔离/接地开关导体材料-引弧触头",
+    "隔离/接地开关导体材料-触头(螺旋弹簧）",
+    "隔离/接地开关外壳-壁厚",
+    "隔离/接地开关外壳-法兰内径",
+    "隔离/接地开关外壳-法兰外径",
+    "隔离/接地开关外壳-OFF位置的净空距离",
+    "隔离/接地开关外壳-导体/壳体最小净距",
+    "隔离/接地开关马达工作时间-隔离开关",
+    "隔离/接地开关分合闸时间-隔离开关合闸（合闸继电器得电到触头接触）",
+    "隔离/接地开关分合闸时间-隔离开关分闸（分闸继电器得电到触头分开）",
+    "隔离/接地开关操作行程-隔离开关分/合闸",
+    "隔离/接地开关辅助回路的额定短时工频耐受电压",
+    "隔离/接地开关操作马达-标称电压 DC",
+    "隔离/接地开关操作马达-容许偏差",
+    "隔离/接地开关操作马达-标称输出（功率）",
+    "隔离/接地开关操作马达-启动电流- DC 110 V",
+    "隔离/接地开关操作马达-启动电流- DC 220 V",
+    "隔离/接地开关操作马达-运行电流- DC 110 V",
+    "隔离/接地开关操作马达-运行电流- DC 220 V",
+    "隔离/接地开关辅助触点-延迟断开触点 / 提前闭合触点",
+    "隔离/接地开关辅助触点-电流开关容量 - DC 220 V/20 ms",
+    "隔离/接地开关辅助触点-电流开关容量 - DC 110 V/20 ms",
+    "隔离/接地开关辅助触点-材质",
+    "隔离/接地开关辅助触点-常开/常闭触点, free",
+    "隔离/接地开关辅助触点-电流负载能力"
+  ],
+  "english_names": [
+    "Rated short-duration power-frequency withstand voltage - to earth",
+    "Rated short-duration power-frequency withstand voltage - over isolating distance  (Type test/Routine test)",
+    "Rated lightning impulse withstand voltage - to earth",
+    "Rated lightning impulse withstand voltage - over isolating distance",
+    "Partial discharge intensity",
+    "Partial discharge measure voltage",
+    "Rated short-time withstand current",
+    "Rated duration of short circuit",
+    "Rated peak current",
+    "Rated current 50 Hz",
+    "Rated current 60 Hz",
+    "Overtemperature at 3465A, 50 Hz and 3150A, 60 Hz - movable contacts",
+    "Overtemperature at 3465A, 50 Hz and 3150A, 60 Hz - srewed contact-connections",
+    "Mechanical endurance",
+    "Bus-charging current switching",
+    "Operating sequence - TD1",
+    "Operating sequence - TD3",
+    "Test voltage",
+    "Capacitive breaking current (with rated voltage)",
+    "Inductive breaking current (with rated voltage)",
+    "Commutation current",
+    "Commutation voltage",
+    "Conductor dimension - conducting path",
+    "Conductor dimension - contact piece movable",
+    "Contacts - type",
+    "Contacts - numbers at disconnector",
+    "Contacts -Resistance of main conductor - Bus DS",
+    "Contacts -Resistance of main conductor - Exit DS",
+    "Conductor material - conducting path",
+    "Conductor material - contact piece movable",
+    "Conductor material ‘- arcing contact (commutation contact)",
+    "Conductor material - contacts",
+    "Enclosure - wall thickness",
+    "Enclosure - flange inner diameter",
+    "Enclosure - flange outer diameter",
+    "Enclosure - clearance distance in position OFF",
+    "Enclosure - Minimum clearance conductor/enclosure",
+    "Motor operation time - disconnector",
+    "Switching times motor start-up - until contact making disconnector",
+    "Switching times motor start-up - until contact seperation disconnector",
+    "Mechanical - pass disconnector",
+    "Auxiliary circuits - rated short-duration power-frequency withstand voltage",
+    "Driving motor - nominal voltage DC",
+    "Driving motor - tolerance band",
+    "Driving motor - nominal output",
+    "Driving motor - starting current - DC 110V",
+    "Driving motor - starting current - DC 220V",
+    "Driving motor - standing current - DC 110V",
+    "Driving motor - standing current - DC 220V",
+    "Auxiliary switch contacts - lagging break contact/leading make contact",
+    "Auxiliary switch contacts - current switching capability - DC 220/ 20ms",
+    "Auxiliary switch contacts - current switching capability - DC 110/ 20ms",
+    "Auxiliary switch contacts - material",
+    "Auxiliary switch contacts - NO contact/NC contact ,Total",
+    "Auxiliary switch contacts - current carrying capacity"
+  ],
+  "spec_entries": [
+    {
+      "name": "隔离/接地开关额定短时工频耐受电压-对地",
+      "value": "275kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定短时工频耐受电压-断口间 (型式试验/出厂试验)",
+      "value": "315/275kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定雷电冲击耐受电压-对地",
+      "value": "650kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定雷电冲击耐受电压-断口间",
+      "value": "750kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关局部放电量",
+      "value": "< 5pC",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关局部放电试验测量电压",
+      "value": "174kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定短时耐受电流（额定热稳定电流）",
+      "value": "40kA",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定短时耐受电流持续时间",
+      "value": "1 or 3s",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定峰值电流",
+      "value": "100kA",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定电流 50 Hz",
+      "value": "3150A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关额定电流 60 Hz",
+      "value": "3465A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-动触头",
+      "value": "< 65K",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-螺旋形触头连接",
+      "value": "< 75K",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关机械寿命等级",
+      "value": "10 000 CO",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关开合母线充电电流试验",
+      "value": "500mA",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作顺序-试验方式1",
+      "value": "50+50Make-Break",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作顺序-试验方式3",
+      "value": "50Make-Break",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关试验电压",
+      "value": "84kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关容性开断电流",
+      "value": "1.2A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关感性开断电流",
+      "value": "0.5A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关开合母线转换电流",
+      "value": "1600A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关开合母线转换电压",
+      "value": "30V",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体尺寸-母线导体",
+      "value": "90mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体尺寸-动触头",
+      "value": "132mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关触头-类型",
+      "value": "spiral spring contact 螺旋弹簧滑动触头",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关触头-隔离开关触头的弹簧数量",
+      "value": "3",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关主回路电阻-母线侧隔离开关",
+      "value": "£ 14µΩ",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关主回路电阻-馈线侧隔离开关",
+      "value": "£ 12µΩ",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体材料-母线导体",
+      "value": "G-Al 铝合金",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体材料-动触头",
+      "value": "Al-Ag 铝镀银",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体材料-引弧触头",
+      "value": "CuWu 铜钨",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关导体材料-触头(螺旋弹簧）",
+      "value": "Cu+Ag 铜镀银",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关外壳-壁厚",
+      "value": "≥ 10mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关外壳-法兰内径",
+      "value": "175mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关外壳-法兰外径",
+      "value": "260mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关外壳-OFF位置的净空距离",
+      "value": "30mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关外壳-导体/壳体最小净距",
+      "value": "24.5mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关马达工作时间-隔离开关",
+      "value": "≤ 1200ms",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关分合闸时间-隔离开关合闸（合闸继电器得电到触头接触）",
+      "value": "200...600ms",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关分合闸时间-隔离开关分闸（分闸继电器得电到触头分开）",
+      "value": "350…800ms",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作行程-隔离开关分/合闸",
+      "value": "76…84mm",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助回路的额定短时工频耐受电压",
+      "value": "2 (1 min)kV",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-标称电压 DC",
+      "value": "110/125/220V",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-容许偏差",
+      "value": "+10/-15%",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-标称输出（功率）",
+      "value": "440W",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-启动电流- DC 110 V",
+      "value": "28A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-启动电流- DC 220 V",
+      "value": "14A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-运行电流- DC 110 V",
+      "value": "8A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关操作马达-运行电流- DC 220 V",
+      "value": "4A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-延迟断开触点 / 提前闭合触点",
+      "value": "2/2",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-电流开关容量 - DC 220 V/20 ms",
+      "value": "2A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-电流开关容量 - DC 110 V/20 ms",
+      "value": "4A",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-材质",
+      "value": "Ag 银",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-常开/常闭触点, free",
+      "value": "11/11",
+      "type": ""
+    },
+    {
+      "name": "隔离/接地开关辅助触点-电流负载能力",
+      "value": "10A",
+      "type": ""
+    }
+  ],
+  "paired_names": [
+    {
+      "chinese": "隔离/接地开关额定短时工频耐受电压-对地",
+      "english": "Rated short-duration power-frequency withstand voltage - to earth"
+    },
+    {
+      "chinese": "隔离/接地开关额定短时工频耐受电压-断口间 (型式试验/出厂试验)",
+      "english": "Rated short-duration power-frequency withstand voltage - over isolating distance  (Type test/Routine test)"
+    },
+    {
+      "chinese": "隔离/接地开关额定雷电冲击耐受电压-对地",
+      "english": "Rated lightning impulse withstand voltage - to earth"
+    },
+    {
+      "chinese": "隔离/接地开关额定雷电冲击耐受电压-断口间",
+      "english": "Rated lightning impulse withstand voltage - over isolating distance"
+    },
+    {
+      "chinese": "隔离/接地开关局部放电量",
+      "english": "Partial discharge intensity"
+    },
+    {
+      "chinese": "隔离/接地开关局部放电试验测量电压",
+      "english": "Partial discharge measure voltage"
+    },
+    {
+      "chinese": "隔离/接地开关额定短时耐受电流（额定热稳定电流）",
+      "english": "Rated short-time withstand current"
+    },
+    {
+      "chinese": "隔离/接地开关额定短时耐受电流持续时间",
+      "english": "Rated duration of short circuit"
+    },
+    {
+      "chinese": "隔离/接地开关额定峰值电流",
+      "english": "Rated peak current"
+    },
+    {
+      "chinese": "隔离/接地开关额定电流 50 Hz",
+      "english": "Rated current 50 Hz"
+    },
+    {
+      "chinese": "隔离/接地开关额定电流 60 Hz",
+      "english": "Rated current 60 Hz"
+    },
+    {
+      "chinese": "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-动触头",
+      "english": "Overtemperature at 3465A, 50 Hz and 3150A, 60 Hz - movable contacts"
+    },
+    {
+      "chinese": "隔离/接地开关温升（3465 A, 50 Hz 以及 3150 A, 60 Hz）-螺旋形触头连接",
+      "english": "Overtemperature at 3465A, 50 Hz and 3150A, 60 Hz - srewed contact-connections"
+    },
+    {
+      "chinese": "隔离/接地开关机械寿命等级",
+      "english": "Mechanical endurance"
+    },
+    {
+      "chinese": "隔离/接地开关开合母线充电电流试验",
+      "english": "Bus-charging current switching"
+    },
+    {
+      "chinese": "隔离/接地开关操作顺序-试验方式1",
+      "english": "Operating sequence - TD1"
+    },
+    {
+      "chinese": "隔离/接地开关操作顺序-试验方式3",
+      "english": "Operating sequence - TD3"
+    },
+    {
+      "chinese": "隔离/接地开关试验电压",
+      "english": "Test voltage"
+    },
+    {
+      "chinese": "隔离/接地开关容性开断电流",
+      "english": "Capacitive breaking current (with rated voltage)"
+    },
+    {
+      "chinese": "隔离/接地开关感性开断电流",
+      "english": "Inductive breaking current (with rated voltage)"
+    },
+    {
+      "chinese": "隔离/接地开关开合母线转换电流",
+      "english": "Commutation current"
+    },
+    {
+      "chinese": "隔离/接地开关开合母线转换电压",
+      "english": "Commutation voltage"
+    },
+    {
+      "chinese": "隔离/接地开关导体尺寸-母线导体",
+      "english": "Conductor dimension - conducting path"
+    },
+    {
+      "chinese": "隔离/接地开关导体尺寸-动触头",
+      "english": "Conductor dimension - contact piece movable"
+    },
+    {
+      "chinese": "隔离/接地开关触头-类型",
+      "english": "Contacts - type"
+    },
+    {
+      "chinese": "隔离/接地开关触头-隔离开关触头的弹簧数量",
+      "english": "Contacts - numbers at disconnector"
+    },
+    {
+      "chinese": "隔离/接地开关主回路电阻-母线侧隔离开关",
+      "english": "Contacts -Resistance of main conductor - Bus DS"
+    },
+    {
+      "chinese": "隔离/接地开关主回路电阻-馈线侧隔离开关",
+      "english": "Contacts -Resistance of main conductor - Exit DS"
+    },
+    {
+      "chinese": "隔离/接地开关导体材料-母线导体",
+      "english": "Conductor material - conducting path"
+    },
+    {
+      "chinese": "隔离/接地开关导体材料-动触头",
+      "english": "Conductor material - contact piece movable"
+    },
+    {
+      "chinese": "隔离/接地开关导体材料-引弧触头",
+      "english": "Conductor material ‘- arcing contact (commutation contact)"
+    },
+    {
+      "chinese": "隔离/接地开关导体材料-触头(螺旋弹簧）",
+      "english": "Conductor material - contacts"
+    },
+    {
+      "chinese": "隔离/接地开关外壳-壁厚",
+      "english": "Enclosure - wall thickness"
+    },
+    {
+      "chinese": "隔离/接地开关外壳-法兰内径",
+      "english": "Enclosure - flange inner diameter"
+    },
+    {
+      "chinese": "隔离/接地开关外壳-法兰外径",
+      "english": "Enclosure - flange outer diameter"
+    },
+    {
+      "chinese": "隔离/接地开关外壳-OFF位置的净空距离",
+      "english": "Enclosure - clearance distance in position OFF"
+    },
+    {
+      "chinese": "隔离/接地开关外壳-导体/壳体最小净距",
+      "english": "Enclosure - Minimum clearance conductor/enclosure"
+    },
+    {
+      "chinese": "隔离/接地开关马达工作时间-隔离开关",
+      "english": "Motor operation time - disconnector"
+    },
+    {
+      "chinese": "隔离/接地开关分合闸时间-隔离开关合闸（合闸继电器得电到触头接触）",
+      "english": "Switching times motor start-up - until contact making disconnector"
+    },
+    {
+      "chinese": "隔离/接地开关分合闸时间-隔离开关分闸（分闸继电器得电到触头分开）",
+      "english": "Switching times motor start-up - until contact seperation disconnector"
+    },
+    {
+      "chinese": "隔离/接地开关操作行程-隔离开关分/合闸",
+      "english": "Mechanical - pass disconnector"
+    },
+    {
+      "chinese": "隔离/接地开关辅助回路的额定短时工频耐受电压",
+      "english": "Auxiliary circuits - rated short-duration power-frequency withstand voltage"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-标称电压 DC",
+      "english": "Driving motor - nominal voltage DC"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-容许偏差",
+      "english": "Driving motor - tolerance band"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-标称输出（功率）",
+      "english": "Driving motor - nominal output"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-启动电流- DC 110 V",
+      "english": "Driving motor - starting current - DC 110V"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-启动电流- DC 220 V",
+      "english": "Driving motor - starting current - DC 220V"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-运行电流- DC 110 V",
+      "english": "Driving motor - standing current - DC 110V"
+    },
+    {
+      "chinese": "隔离/接地开关操作马达-运行电流- DC 220 V",
+      "english": "Driving motor - standing current - DC 220V"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-延迟断开触点 / 提前闭合触点",
+      "english": "Auxiliary switch contacts - lagging break contact/leading make contact"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-电流开关容量 - DC 220 V/20 ms",
+      "english": "Auxiliary switch contacts - current switching capability - DC 220/ 20ms"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-电流开关容量 - DC 110 V/20 ms",
+      "english": "Auxiliary switch contacts - current switching capability - DC 110/ 20ms"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-材质",
+      "english": "Auxiliary switch contacts - material"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-常开/常闭触点, free",
+      "english": "Auxiliary switch contacts - NO contact/NC contact ,Total"
+    },
+    {
+      "chinese": "隔离/接地开关辅助触点-电流负载能力",
+      "english": "Auxiliary switch contacts - current carrying capacity"
+    }
+  ],
+  "total_extracted": 55
+}
