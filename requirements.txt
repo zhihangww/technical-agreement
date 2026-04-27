@@ -3,7 +3,7 @@ streamlit==1.30.0
 # 文档解析（基础版本，减少依赖）
 docling==2.0.0
 # LlamaIndex基础功能（仅保留核心）
-llama-index==0.10.0
+llama-index-core>=0.10.0
 llama-index-readers-file==0.2.0
 # 数据处理（基础版本）
 pandas==1.5.3
