@@ -1,13 +1,17 @@
-# 核心Web框架（超稳定旧版本）
-streamlit==1.30.0
-# 文档解析（基础版本，减少依赖）
+# 核心Web框架（兼容Python 3.10+）
+streamlit>=1.30.0,<2.0.0
+
+# 文档解析（基础版本，依赖已对齐）
 docling==2.0.0
-# LlamaIndex基础功能（仅保留核心）
-llama-index-core>=0.10.0
-llama-index-readers-file==0.2.0
-# 数据处理（基础版本）
-pandas==1.5.3
-openpyxl==3.0.10
-python-dotenv==1.0.0
+
+# LlamaIndex基础功能（仅保留核心，兼容新版pandas）
+llama-index-core>=0.10.0,<0.11.0
+llama-index-readers-file>=0.2.0,<0.3.0
+
+# 数据处理（升级到和docling兼容的版本）
+pandas>=2.1.4,<3.0.0
+openpyxl>=3.1.0,<4.0.0
+python-dotenv>=1.0.0,<2.0.0
+
 # 日志显示（无冲突版本）
-rich==10.14.0
+rich>=10.14.0,<14.0.0
